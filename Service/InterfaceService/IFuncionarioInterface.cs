@@ -10,4 +10,5 @@ public interface IFuncionarioInterface
     Task<ServiceResponse<IList<Funcionario>>> PutFuncionario(Funcionario funcionario);
     Task<ServiceResponse<IList<Funcionario>>> DeleteFuncionario(int funcionario);
     Task<ServiceResponse<IList<Funcionario>>> InativaFuncionario(int funcionario);
+    Task<ServiceResponse<IList<Funcionario>>> AtivaFuncionario(int funcionario);
 }

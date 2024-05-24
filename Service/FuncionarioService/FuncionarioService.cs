@@ -28,6 +28,36 @@ public class FuncionarioService : IFuncionarioInterface
         this._aplicationDbContext = aplicationDbContext;
     }
 
+    public async Task<ServiceResponse<IList<Funcionario>>> AtivaFuncionario(int id)
+    {
+        ServiceResponse<IList<Funcionario>> serviceResponse = new ServiceResponse<IList<Funcionario>>();
+
+        try
+        {
+            var funcionario = await _aplicationDbContext.Funcionarios.FirstOrDefaultAsync(x=> x.Id == id);
+
+            if(funcionario is null)
+                serviceResponse.Dados = null;
+                serviceResponse.Mensagem = "Usuário não encontrado";
+                serviceResponse.Sucesso = false;
+            
+            funcionario.Ativo = true;
+            funcionario.DataAlteracao = DateTime.Now.ToLocalTime();
+
+            _aplicationDbContext.Funcionarios.Update(funcionario);
+            await _aplicationDbContext.SaveChangesAsync();
+
+            serviceResponse.Dados = await _aplicationDbContext.Funcionarios.ToListAsync();
+        }
+        catch (Exception ex)
+        {
+            serviceResponse.Mensagem = ex.Message;
+            serviceResponse.Sucesso = false;
+        }
+
+        return serviceResponse;
+    }
+
     public async Task<ServiceResponse<IList<Funcionario>>> CreateFuncionario(Funcionario funcionario)
     {
         ServiceResponse<IList<Funcionario>> serviceResponse = new ServiceResponse<IList<Funcionario>>();
