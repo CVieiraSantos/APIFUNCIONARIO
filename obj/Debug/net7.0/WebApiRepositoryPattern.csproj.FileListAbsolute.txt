@@ -74,3 +74,4 @@ C:\Users\caduv\temp\Web API Repository Pattern\WebApiRepositoryPattern\src\obj\D
 C:\Users\caduv\temp\Web API Repository Pattern\WebApiRepositoryPattern\src\obj\Debug\net7.0\WebApiRepositoryPattern.pdb
 C:\Users\caduv\temp\Web API Repository Pattern\WebApiRepositoryPattern\src\obj\Debug\net7.0\WebApiRepositoryPattern.genruntimeconfig.cache
 C:\Users\caduv\temp\Web API Repository Pattern\WebApiRepositoryPattern\src\obj\Debug\net7.0\ref\WebApiRepositoryPattern.dll
+C:\Users\caduv\temp\Web API Repository Pattern\WebApiRepositoryPattern\src\obj\Debug\net7.0\WebApiRepositoryPattern.sourcelink.json

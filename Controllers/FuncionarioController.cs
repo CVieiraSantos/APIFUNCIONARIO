@@ -48,6 +48,13 @@ public class FuncionarioController : ControllerBase
         return Ok(serviceResponse);
     }
 
+    [HttpPut("v1/funcionario/ativaFuncionarioPeloId")]
+    public async Task<ActionResult<ServiceResponse<IList<Funcionario>>>> AtivaFuncionarioAsync(int id)
+    {
+        ServiceResponse<IList<Funcionario>> serviceResponse = await _funcionarioService.AtivaFuncionario(id); 
+        return Ok(serviceResponse);
+    }
+
     [HttpPut("v1/funcionario")]
     public async Task<ActionResult<ServiceResponse<IList<Funcionario>>>> UpdateFuncionario(Funcionario funcionarioEditado)
     {
